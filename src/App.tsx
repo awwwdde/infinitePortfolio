@@ -5,7 +5,7 @@ import './styles/styles.scss'
 function App() {
   return (
     <div className="app">
-      HELLO
+      hello, i am awwwdde
     </div>
   );
 }
