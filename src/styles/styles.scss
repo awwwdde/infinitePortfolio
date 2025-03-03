@@ -1,0 +1,26 @@
+@import './reboot.scss';
+
+.app {
+    position: relative;
+    background-color: #1b1b1b;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .page-enter {
+    opacity: 0;
+  }
+  .page-enter-active {
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
+  .page-exit {
+    opacity: 1;
+  }
+  .page-exit-active {
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
