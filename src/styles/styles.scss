@@ -1,7 +1,10 @@
 @import './reboot.scss';
 @import './colors.scss';
 
+
 .app {
+    font-family: 'Nohemi', sans-serif;
+    font-weight: 400; // Регулируйте по умолчанию
     position: relative;
     background-color: $background-color;
     width: 100%;
