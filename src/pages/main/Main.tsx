@@ -6,9 +6,7 @@ export const Main = () => {
   const titleRef = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline({ repeat: -1 }); // Бесконечное повторение
-    
-    // Основная анимация
+    const tl = gsap.timeline({ repeat: -1 }); 
     tl.fromTo(titleRef.current, 
       { opacity: 0.8, y: -5 },
       {
@@ -23,16 +21,11 @@ export const Main = () => {
       duration: 4,
       ease: "power1.inOut",
     });
-
-    // Дополнительное мерцание
     gsap.to(titleRef.current, {
       duration: 2,
       repeat: -1,
       ease: "sine.inOut",
       yoyo: true,
-      css: {
-        textShadow: "0 0 8px rgba(255,255,255,0.3)"
-      }
     });
 
   }, []);

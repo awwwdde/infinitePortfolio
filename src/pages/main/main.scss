@@ -5,14 +5,14 @@
         width: 1820px;
         height: 880px;
         border-radius: 10px;
-        background-color: $background-color-block;
+        // background-color: $background-color-block;
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
-
+        // border: 2px solid $text-color;
         &-title {
-            font-weight: 900;
+            font-weight: 700;
             font-size: 250px;
             position: relative;
             display: inline-block;
@@ -24,8 +24,8 @@
                 width: 144px;
                 height: 15px;
                 background-color: currentColor;
-                bottom: 0.72em; // Позиционирование относительно высоты текста
-                right: 0.42em; // Позиция от правого края текста
+                bottom: 0.72em; 
+                right: 0.42em; 
             }
         }
     }
