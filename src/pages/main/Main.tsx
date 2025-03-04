@@ -4,7 +4,7 @@ import './main.scss';
 
 export const Main = () => {
   const titleRef = useRef(null);
-
+  const subtitleRef = useRef(null);
   useEffect(() => {
     const tl = gsap.timeline({ repeat: -1 }); 
     tl.fromTo(titleRef.current, 
@@ -28,7 +28,7 @@ export const Main = () => {
       yoyo: true,
     });
 
-  }, []);
+  }, []); 
 
   return (
     <div className="main">
