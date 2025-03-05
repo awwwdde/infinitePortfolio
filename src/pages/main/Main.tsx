@@ -7,26 +7,43 @@ export const Main = () => {
   const subtitleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const createBreathAnimation = (element: HTMLElement) => {
-      gsap.fromTo(element,
+    // Анимация для основного заголовка
+    if (titleRef.current) {
+      const tl = gsap.timeline({ repeat: -1 });
+      tl.fromTo(titleRef.current,
+        { opacity: 0.8, y: -5 },
         {
-          opacity: 0.92,
-          y: -1.5
-        },
-        {
-          opacity: 0.98,
-          y: 1.5,
-          duration: 8,
-          ease: "sine.inOut",
-          repeat: -1,
-          yoyo: true
+          opacity: 1,
+          y: 5,
+          duration: 4,
+          ease: "power1.inOut",
         }
-      );
-    };
+      ).to(titleRef.current, {
+        opacity: 0.8,
+        y: -5,
+        duration: 4,
+        ease: "power1.inOut",
+      });
+    }
 
-    if (titleRef.current) createBreathAnimation(titleRef.current);
-    if (subtitleRef.current) createBreathAnimation(subtitleRef.current);
-
+    // Анимация для субтитла
+    if (subtitleRef.current) {
+      const tlSubtitle = gsap.timeline({ repeat: -1 });
+      tlSubtitle.fromTo(subtitleRef.current,
+        { opacity: 0.8, y: -5 },
+        {
+          opacity: 1,
+          y: 5,
+          duration: 4,
+          ease: "power1.inOut",
+        }
+      ).to(subtitleRef.current, {
+        opacity: 0.8,
+        y: -5,
+        duration: 4,
+        ease: "power1.inOut",
+      });
+    }
   }, []);
 
   return (
@@ -34,7 +51,7 @@ export const Main = () => {
       <div className="main-block">
         <div className="main-block-title" ref={titleRef}>infinite.</div>
         <div className="main-block-subtitle" ref={subtitleRef}>
-          updating, please wait
+          updating
         </div>
       </div>
     </div>
