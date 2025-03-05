@@ -58,6 +58,9 @@
                     transform: translate(20px, -15px);
                 }
             }
+            &-subtitle{
+                font-size: 3rem;
+            }
         }
     }
 }
@@ -72,6 +75,9 @@
                     height: 0.2rem;
                     transform: translate(10px, -8px);
                 }
+            }
+            &-subtitle{
+                font-size: 1.4rem;
             }
         }
     }
