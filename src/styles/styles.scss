@@ -4,13 +4,13 @@
 
 .app {
     font-family: 'Nohemi', sans-serif;
-    font-weight: 400; // Регулируйте по умолчанию
+    font-weight: 400; 
     position: relative;
-    background-color: $background-color;
+    background-color: $background-color-dark;
     width: 100%;
     min-height: 100vh;
     font-weight: 700;
-    color: $text-color;
+    color: $text-color-dark;
     display: flex;
     align-items: center;
     justify-content: center;
