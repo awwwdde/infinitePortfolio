@@ -51,7 +51,7 @@ export const Main = () => {
       <div className="main-block">
         <div className="main-block-title" ref={titleRef}>infinite.</div>
         <div className="main-block-subtitle" ref={subtitleRef}>
-          updating
+          searching my vision
         </div>
       </div>
     </div>
