@@ -2,38 +2,48 @@
 
 .main {
     &-block {
-        width: 95%; // Относительная ширина
-        max-width: 1820px; // Максимальная ширина для больших экранов
-        height: auto; // Автоматическая высота
-        min-height: 100vh; // Минимальная высота на весь экран
-        padding: 2rem 1rem; // Отступы для мобильных
+        width: 95%; 
+        max-width: 1820px; 
+        height: auto; 
+        min-height: 100vh; 
+        padding: 2rem 1rem; 
         border-radius: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         position: relative;
-        margin: 0 auto; // Центрирование блока
+        margin: 0 auto; 
 
         &-title {
             font-weight: 700;
-            font-size: clamp(3rem, 15vw, 250px); // Адаптивный шрифт
+            font-size: clamp(3rem, 15vw, 250px); 
             position: relative;
             display: inline-block;
             will-change: transform, opacity;
-            text-align: center; // Центрирование текста
-            white-space: nowrap; // Запрет переноса текста
-            overflow: visible; // Гарантия видимости черточки
+            text-align: center; 
+            white-space: nowrap; 
+            overflow: visible; 
             &::after {
                 transform: translate(45px, -30px);
                 content: '';
                 position: absolute;
-                width: clamp(2rem, 8vw, 144px); // Адаптивная ширина
-                height: clamp(0.25rem, 1vw, 15px); // Адаптивная высота
+                width: clamp(2rem, 8vw, 144px); 
+                height: clamp(0.25rem, 1vw, 15px); 
                 background-color: currentColor;
                 bottom: 0.72em;
                 right: 0.42em;
             }
+        }
+        &-subtitle{
+            font-weight: 700;
+            font-size: clamp(3rem, 15vw, 64px); 
+            position: relative;
+            display: inline-block;
+            will-change: transform, opacity;
+            text-align: center; 
+            white-space: nowrap; 
+            overflow: visible; 
         }
     }
 }

@@ -34,6 +34,7 @@ export const Main = () => {
     <div className="main">
         <div className="main-block">
             <div className="main-block-title" ref={titleRef}>infinite.</div>
+            <div className="main-block-subtitle">updating</div>
         </div>
     </div>
   );
