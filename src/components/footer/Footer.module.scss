@@ -1,0 +1,46 @@
+@import "../../styles/colors.scss";
+.footer{
+    position: relative;
+    overflow: hidden;
+}
+.footerblock{
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
+.footerblocktitle{
+            font-weight: 700;
+            font-size: 36px; 
+            position: relative;
+            display: inline-block;
+            will-change: transform, opacity;
+            text-align: center; 
+            white-space: nowrap; 
+            overflow: visible; 
+            &::after {
+                border-radius: 2px;
+                transform: translate(10px, -7px);
+                content: '';
+                position: absolute;
+                width: clamp(2rem, 8vw, 12px); 
+                height: clamp(0.25rem, 1vw, 4px); 
+                background-color: currentColor;
+                bottom: 0.72em;
+                right: 0.42em;
+            }
+}
+.footerblocklinks{
+    font-size: 16px; 
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    
+    justify-content: center;
+    a{ text-decoration: none; color: $text-color-dark;}
+    :hover{
+        color: white;
+    }
+}

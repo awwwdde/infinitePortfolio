@@ -2,9 +2,7 @@
 
 .main {
     &-block {
-        width: 95%; 
         max-width: 1820px; 
-        height: auto; 
         min-height: 100vh; 
         padding: 2rem 1rem; 
         border-radius: 10px;
@@ -17,7 +15,7 @@
 
         &-title {
             font-weight: 700;
-            font-size: clamp(3rem, 15vw, 250px); 
+            font-size: clamp(3rem, 15vw, 36px); 
             position: relative;
             display: inline-block;
             will-change: transform, opacity;
@@ -25,25 +23,16 @@
             white-space: nowrap; 
             overflow: visible; 
             &::after {
-                transform: translate(45px, -30px);
+                border-radius: 2px;
+                transform: translate(10px, -7px);
                 content: '';
                 position: absolute;
-                width: clamp(2rem, 8vw, 144px); 
-                height: clamp(0.25rem, 1vw, 15px); 
+                width: clamp(2rem, 8vw, 12px); 
+                height: clamp(0.25rem, 1vw, 4px); 
                 background-color: currentColor;
                 bottom: 0.72em;
                 right: 0.42em;
             }
-        }
-        &-subtitle{
-            font-weight: 700;
-            font-size: clamp(3rem, 15vw, 32px); 
-            position: relative;
-            display: inline-block;
-            will-change: transform, opacity;
-            text-align: center; 
-            white-space: nowrap; 
-            overflow: visible; 
         }
     }
 }
