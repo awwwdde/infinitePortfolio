@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from 'react';
-import gsap from 'gsap';
+import React from 'react';
+
 import './main.scss';
 
 export const Main = () => {

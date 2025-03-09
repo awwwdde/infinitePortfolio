@@ -1,5 +1,4 @@
 import React from 'react';
-import gsap from 'gsap';
 import styles from './Footer.module.scss';
 
 export const Footer = () =>{
