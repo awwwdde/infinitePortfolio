@@ -34,6 +34,7 @@
 }
 .footerblocklinks{
     font-size: 16px; 
+    font-weight: 500;
     display: flex;
     gap: 2.5rem;
     flex-wrap: wrap;
@@ -41,6 +42,6 @@
     justify-content: center;
     a{ text-decoration: none; color: $text-color-dark;}
     :hover{
-        color: white;
+        color: $text-color-dark-hover;
     }
 }
