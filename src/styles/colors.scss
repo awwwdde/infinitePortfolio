@@ -1,10 +1,29 @@
+// Светлая тема
+$light-background: #ffffff;
+$light-text: #000000;
+$light-text-secondary: #666666;
+$light-border: #eeeeee;
+$light-accent: #000000;
 
-//light theme
-$background-color: #D2D2D2;
-$background-color-block: #D9D9D9;
-$text-color: #292929;
+// Темная тема
+$dark-background: #121212;
+$dark-text: #ffffff;
+$dark-text-secondary: #aaaaaa;
+$dark-border: #333333;
+$dark-accent: #ffffff;
 
-//dark theme
-$background-color-dark: #ffffff;
-$text-color-dark: #00439C;
-$text-color-dark-hover: #023273;
+:root {
+  --background: #{$light-background};
+  --text: #{$light-text};
+  --text-secondary: #{$light-text-secondary};
+  --border: #{$light-border};
+  --accent: #{$light-accent};
+}
+
+[data-theme="dark"] {
+  --background: #{$dark-background};
+  --text: #{$dark-text};
+  --text-secondary: #{$dark-text-secondary};
+  --border: #{$dark-border};
+  --accent: #{$dark-accent};
+}
