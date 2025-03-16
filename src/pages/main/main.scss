@@ -19,14 +19,10 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.8s ease, transform 0.8s ease;
         margin-bottom: 80px; /* Отступ для футера */
         
         &.visible {
             opacity: 1;
-            transform: translateY(0);
         }
 
         &-title {
@@ -35,19 +31,22 @@
             color: var(--text);
             position: relative;
             text-align: center;
-            transition: color 0.3s ease, transform 0.5s ease;
             cursor: default;
-            will-change: transform;
+            transition: color 0.3s ease;
             
             &-text {
                 position: relative;
                 display: inline-block;
                 font-weight: 900;
+                color: var(--text);
+                transition: color 0.3s ease;
                 
                 span {
                     position: relative;
                     display: inline-block;
                     font-weight: 900;
+                    color: inherit;
+                    transition: none;
                 }
             }
             
@@ -55,6 +54,8 @@
                 position: relative;
                 font-weight: 900;
                 display: inline-block;
+                color: inherit;
+                transition: none;
                 
                 & + span + span::before {
                     content: '';

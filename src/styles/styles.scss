@@ -37,15 +37,30 @@ strong, b, h1, h2, h3, h4, h5, h6,
 }
 .page-enter-active {
   opacity: 1;
-  transition: opacity 0.5s;
+  transition: opacity 0.3s ease;
 }
 .page-exit {
   opacity: 1;
 }
 .page-exit-active {
   opacity: 0;
-  transition: opacity 0.5s;
+  transition: opacity 0.3s ease;
 }
 a {
   text-decoration: none;
+}
+
+/* Глобальные настройки для плавной смены темы */
+* {
+  transition-property: background-color, color, border-color, fill, stroke;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Отключаем наследование transition для вложенных элементов текста */
+span span, 
+.main-block-title-text span,
+.main-block-title-accent {
+  transition: none !important;
+  color: inherit !important;
 }
