@@ -23,8 +23,13 @@ html, body {
 }
 
 /* Убедимся, что жирный шрифт применяется корректно */
-strong, b, h1, h2, h3, h4, h5, h6, .main-block-title, .main-block-title-text, .main-block-title-accent {
-  font-weight: 900;
+strong, b, h1, h2, h3, h4, h5, h6, 
+.main-block-title, 
+.main-block-title-text, 
+.main-block-title-text span, 
+.main-block-title-accent,
+.font-black {
+  font-weight: 900 !important;
 }
   
 .page-enter {

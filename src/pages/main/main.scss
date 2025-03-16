@@ -35,26 +35,36 @@
             color: var(--text);
             position: relative;
             text-align: center;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.5s ease;
+            cursor: default;
+            will-change: transform;
             
             &-text {
                 position: relative;
                 display: inline-block;
+                font-weight: 900;
+                
+                span {
+                    position: relative;
+                    display: inline-block;
+                    font-weight: 900;
+                }
             }
             
             &-accent {
                 position: relative;
                 font-weight: 900;
+                display: inline-block;
                 
-                &::before {
-                    border-radius: 2em;
+                & + span + span::before {
                     content: '';
                     position: absolute;
                     width: 0.6em;
                     height: 0.05em;
                     background-color: var(--accent);
+                    border-radius: 2em;
                     top: -0.001em;
-                    left: 0.67em;
+                    left: 0.03em; 
                     transition: background-color 0.3s ease;
                 }
             }
@@ -66,6 +76,14 @@
     font-weight: 900 !important;
 }
 
+/* Дополнительное правило для усиления жирности */
+.main-block-title, 
+.main-block-title-text, 
+.main-block-title-text span, 
+.main-block-title-accent {
+    font-weight: 900 !important;
+}
+
 @media (max-width: 768px) {
     .main {
         &-block {
@@ -74,17 +92,6 @@
             
             &-title {
                 font-size: 3rem;
-                
-                &-accent {
-                    font-weight: 900;
-                    
-                    &::before {
-                        width: 0.6em;
-                        height: 0.05em;
-                        top: -0.001em;
-                        left: 0.67em;
-                    }
-                }
             }
         }
     }
@@ -98,17 +105,6 @@
             
             &-title {
                 font-size: 2.5rem;
-                
-                &-accent {
-                    font-weight: 900;
-                    
-                    &::before {
-                        width: 0.6em;
-                        height: 0.05em;
-                        top: -0.001em;
-                        left: 0.67em;
-                    }
-                }
             }
         }
     }
