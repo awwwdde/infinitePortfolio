@@ -11,7 +11,11 @@ export const Main = () => {
   return (
     <div className="main">
       <div className={`main-block ${isVisible ? 'visible' : ''}`}>
-        <div className="main-block-title">infinite.</div>
+        <div className="main-block-title">
+          <span className="main-block-title-text font-black">
+            infin<span className="main-block-title-accent font-black">i</span>te.
+          </span>
+        </div>
       </div>
     </div>
   );

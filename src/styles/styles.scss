@@ -15,12 +15,16 @@ html, body {
   background-color: var(--background);
   width: 100%;
   height: 100vh;
-  font-weight: 700;
   color: var(--text);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Убедимся, что жирный шрифт применяется корректно */
+strong, b, h1, h2, h3, h4, h5, h6, .main-block-title, .main-block-title-text, .main-block-title-accent {
+  font-weight: 900;
 }
   
 .page-enter {
