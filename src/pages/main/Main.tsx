@@ -5,9 +5,34 @@ import gsap from 'gsap';
 
 export const Main = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showNickname, setShowNickname] = useState(false);
   const titleRef = useRef<HTMLDivElement>(null);
   const titleTextRef = useRef<HTMLSpanElement>(null);
-  const { t } = useLanguage();
+  const manifestoRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const { t, language } = useLanguage();
+
+  // Function to replace Vladislav with awwwdde in text
+  const processText = (text: string): string => {
+    const primaryName = t('name.primary');
+    const alternateName = t('name.alternate');
+    const nickname = t('name.nickname');
+
+    // Create case-insensitive regex to catch all variations of the name
+    const primaryRegex = new RegExp(primaryName, 'gi');
+    const alternateRegex = new RegExp(alternateName, 'gi');
+
+    if (showNickname) {
+      return text
+        .replace(primaryRegex, `<span class="name-animation">${nickname}</span>`)
+        .replace(alternateRegex, `<span class="name-animation">${nickname}</span>`);
+    } else {
+      return text
+        .replace(new RegExp(nickname, 'gi'), `<span class="name-animation">${primaryName}</span>`)
+        .replace(primaryRegex, `<span class="name-animation">${primaryName}</span>`)
+        .replace(alternateRegex, `<span class="name-animation">${alternateName}</span>`);
+    }
+  };
 
   useEffect(() => {
     setIsVisible(true);
@@ -49,7 +74,36 @@ export const Main = () => {
         delay: 0.5
       });
     }
+
+    // Set up the name toggle interval with a more natural timing
+    const nameToggleInterval = setInterval(() => {
+      // Extremely subtle animation - just a gentle fade
+      gsap.to('.name-animation', {
+        opacity: 0.3,
+        duration: 1.2,
+        ease: "power1.inOut",
+        onComplete: () => {
+          setShowNickname(prev => !prev);
+          // Fade back in very smoothly
+          gsap.to('.name-animation', {
+            opacity: 0.95,
+            duration: 1.5,
+            ease: "power1.out",
+            delay: 0.1
+          });
+        }
+      });
+    }, 8000);
+
+    return () => {
+      clearInterval(nameToggleInterval);
+    };
   }, []);
+
+  // Update when nickname changes
+  useEffect(() => {
+    // We still want to keep the interval for text replacement
+  }, [showNickname]);
 
   return (
     <div className="main">
@@ -61,10 +115,12 @@ export const Main = () => {
         </div>
       </div>
 
-      <div className={`main-block-manifesto bottom-left ${isVisible ? 'visible' : ''}`}>
-        <p>
-          {t('manifesto.text')}
-        </p>
+      <div className={`main-block-manifesto bottom-left ${isVisible ? 'visible' : ''}`} ref={manifestoRef}>
+        <p dangerouslySetInnerHTML={{ __html: processText(t('manifesto.text')) }} />
+      </div>
+
+      <div className={`main-block-about top-right ${isVisible ? 'visible' : ''}`} ref={aboutRef}>
+        <p dangerouslySetInnerHTML={{ __html: processText(t('about.text')) }} />
       </div>
     </div>
   );

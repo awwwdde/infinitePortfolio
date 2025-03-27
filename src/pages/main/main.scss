@@ -12,6 +12,8 @@
     overflow: hidden;
     transition: background-color 0.3s ease;
 
+
+
     &-block {
         max-width: 1200px;
         padding: 0 2rem;
@@ -19,7 +21,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-bottom: 80px; 
+        margin-bottom: 80px;
 
         &.visible {
             opacity: 1;
@@ -80,20 +82,18 @@
         }
     }
 
-    &-block-manifesto {
+    &-block-manifesto,
+    &-block-about {
         max-width: 400px;
         position: absolute;
-        bottom: 100px; 
-        left: 40px;
         padding: 1.5rem;
-        font-size: 1.1rem; 
+        font-size: 1.1rem;
         line-height: 1.6;
-        color: var(--text); 
-        border-radius: 8px;
+        color: var(--text);
         opacity: 0;
         transform: translateY(20px);
-        transition: opacity 0.8s ease, transform 0.8s ease, color 0.3s ease; 
-        min-height: 180px; 
+        transition: opacity 0.8s ease, transform 0.8s ease, color 0.3s ease;
+        min-height: 180px;
         display: flex;
         align-items: center;
 
@@ -109,16 +109,42 @@
             display: block;
         }
     }
+
+    &-block-manifesto {
+        bottom: 100px;
+        left: 40px;
+    }
+
+    &-block-about {
+        top: 100px;
+        right: 40px;
+        max-width: 450px;
+        transform: translateY(-20px);
+
+        &.visible {
+            transform: translateY(0);
+        }
+    }
 }
 
 .font-black {
     font-weight: 900 !important;
 }
 
+.name-animation {
+    display: inline-block;
+    position: relative;
+    font-weight: inherit;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 
-.main-block-title, 
-.main-block-title-text, 
-.main-block-title-text span, 
+    /* Extremely subtle style change - just slightly different color */
+    color: var(--text);
+    opacity: 0.95;
+}
+
+.main-block-title,
+.main-block-title-text,
+.main-block-title-text span,
 .main-block-title-accent {
     font-weight: 900 !important;
 }
@@ -134,33 +160,64 @@
             }
         }
 
-        &-block-manifesto {
+        &-block-manifesto,
+        &-block-about {
             max-width: 350px;
-            bottom: 80px;
-            left: 30px;
             padding: 1.2rem;
             font-size: 1rem;
         }
+
+        &-block-manifesto {
+            bottom: 80px;
+            left: 30px;
+        }
+
+        &-block-about {
+            top: 80px;
+            right: 30px;
+        }
+
+
     }
 }
 
 @media (max-width: 480px) {
     .main {
+        overflow-y: auto;
+        display: block;
+        padding: 20px;
+
         &-block {
             padding: 0 1rem;
-            margin-bottom: 50px;
+            margin: 100px 0;
+            height: auto;
 
             &-title {
                 font-size: 2.5rem;
             }
         }
 
-        &-block-manifesto {
-            max-width: calc(100% - 40px);
-            bottom: 70px;
-            left: 20px;
+        &-block-manifesto,
+        &-block-about {
+            position: relative;
+            max-width: 100%;
             padding: 1rem;
             font-size: 0.9rem;
+            margin: 20px 0;
+            top: auto;
+            right: auto;
+            bottom: auto;
+            left: auto;
         }
+
+        &-block-manifesto {
+            margin-bottom: 40px;
+        }
+
+        &-block-about {
+            margin-top: 40px;
+        }
+
+
     }
 }

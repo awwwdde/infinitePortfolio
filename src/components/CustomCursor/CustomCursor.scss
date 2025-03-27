@@ -13,18 +13,23 @@ div {
   cursor: none !important;
 }
 
+/* Ensure theme and language toggles don't cause cursor issues */
+.theme-toggle-button,
+.language-toggle-button {
+  cursor: none !important;
+  z-index: 100;
+}
+
 /* Custom cursor styles */
 .cursor-dot,
 .cursor-blob,
 .cursor-invert-circle {
   pointer-events: none;
   position: fixed;
-  top: 0;
-  left: 0;
   transform: translate(-50%, -50%);
   z-index: 9999;
-  transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
   will-change: transform;
+  transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
 }
 
 .cursor-dot {
@@ -32,15 +37,15 @@ div {
   height: 6px;
   border-radius: 50%;
   background-color: var(--accent);
-  transition: width 0.2s, height 0.2s, background-color 0.3s;
   z-index: 10001;
+  transition: background-color 0.3s;
 
   &.clicked {
-    transform: translate(-50%, -50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.8) !important;
   }
 
   &.link-hovered {
-    transform: translate(-50%, -50%) scale(1.5);
+    transform: translate(-50%, -50%) scale(1.5) !important;
     background-color: var(--accent);
   }
 
@@ -55,7 +60,6 @@ div {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
   z-index: 9998;
 
   svg {
@@ -73,15 +77,17 @@ div {
   }
 
   &.clicked {
-    transform: translate(-50%, -50%) scale(0.9);
-
     svg .blob-path {
       stroke: var(--accent);
     }
   }
 
+  &.clicked {
+    transform: translate(-50%, -50%) scale(0.9) !important;
+  }
+
   &.link-hovered {
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, -50%) scale(1.1) !important;
 
     svg {
       width: 50px;
@@ -122,13 +128,13 @@ div {
   &.clicked {
     width: 33px;
     height: 33px;
-    transform: translate(-50%, -50%) scale(0.9);
+    transform: translate(-50%, -50%) scale(0.9) !important;
   }
 
   &.link-hovered {
     width: 48px;
     height: 48px;
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, -50%) scale(1.1) !important;
   }
 
   &.hidden {

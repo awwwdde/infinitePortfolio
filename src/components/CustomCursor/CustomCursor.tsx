@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './CustomCursor.scss';
 
 const CustomCursor: React.FC = () => {
@@ -7,7 +7,6 @@ const CustomCursor: React.FC = () => {
   const [linkHovered, setLinkHovered] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const updatePosition = (e: MouseEvent) => {
@@ -61,14 +60,6 @@ const CustomCursor: React.FC = () => {
   return (
     <>
       <div
-        className={`cursor-dot ${clicked ? 'clicked' : ''} ${linkHovered ? 'link-hovered' : ''} ${hidden ? 'hidden' : ''}`}
-        style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`
-        }}
-      />
-      <div
-        ref={cursorRef}
         className={`cursor-blob ${clicked ? 'clicked' : ''} ${linkHovered ? 'link-hovered' : ''} ${hidden ? 'hidden' : ''}`}
         style={{
           left: `${position.x}px`,
@@ -79,7 +70,7 @@ const CustomCursor: React.FC = () => {
           <path className="blob-path" d="M50,20 C65,20 75,35 75,50 C75,65 65,80 50,80 C35,80 25,65 25,50 C25,35 35,20 50,20 Z">
             <animate
               attributeName="d"
-              dur="10000ms"
+              dur="5000ms"
               repeatCount="indefinite"
               values="
                 M50,20 C65,20 75,35 75,50 C75,65 65,80 50,80 C35,80 25,65 25,50 C25,35 35,20 50,20 Z;
