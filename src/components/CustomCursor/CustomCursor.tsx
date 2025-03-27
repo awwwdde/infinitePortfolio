@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './CustomCursor.scss';
+import gsap from 'gsap';
 
 const CustomCursor: React.FC = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -25,6 +26,15 @@ const CustomCursor: React.FC = () => {
         el.addEventListener('mouseleave', () => setLinkHovered(false));
       });
     };
+
+    // Add fade-in animation for cursor
+    const cursorElements = document.querySelectorAll('.cursor-blob, .cursor-invert-circle');
+    if (cursorElements.length) {
+      gsap.fromTo(cursorElements,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.8, delay: 0.3, ease: "power2.out" }
+      );
+    }
 
     const handleResize = () => {
       setWindowWidth(window.innerWidth);

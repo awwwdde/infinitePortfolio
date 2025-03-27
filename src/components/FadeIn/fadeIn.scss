@@ -1,0 +1,4 @@
+.fade-in {
+  will-change: opacity, transform;
+  display: contents; /* This makes the wrapper transparent to layout */
+}

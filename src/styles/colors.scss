@@ -1,11 +1,11 @@
-// Светлая тема
+
 $light-background: #ffffff;
 $light-text: #000000;
 $light-text-secondary: #666666;
 $light-border: #eeeeee;
 $light-accent: #000000;
 
-// Темная тема
+
 $dark-background: #121212;
 $dark-text: #ffffff;
 $dark-text-secondary: #aaaaaa;
@@ -18,8 +18,10 @@ $dark-accent: #ffffff;
   --text-secondary: #{$light-text-secondary};
   --border: #{$light-border};
   --accent: #{$light-accent};
+  --text-transparent: rgba(0, 0, 0, 0.3);
+  --text-shadow: rgba(0, 0, 0, 0.3);
 
-  /* Inverse theme colors (dark theme colors in light mode) */
+
   --inverse-background: #{$dark-background};
   --inverse-text: #{$dark-text};
   --inverse-text-secondary: #{$dark-text-secondary};
@@ -33,8 +35,10 @@ $dark-accent: #ffffff;
   --text-secondary: #{$dark-text-secondary};
   --border: #{$dark-border};
   --accent: #{$dark-accent};
+  --text-transparent: rgba(255, 255, 255, 0.3);
+  --text-shadow: rgba(255, 255, 255, 0.3);
 
-  /* Inverse theme colors (light theme colors in dark mode) */
+
   --inverse-background: #{$light-background};
   --inverse-text: #{$light-text};
   --inverse-text-secondary: #{$light-text-secondary};

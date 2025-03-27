@@ -2,6 +2,7 @@ import './main.scss';
 import { useEffect, useState, useRef } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import gsap from 'gsap';
+import FadeIn from '../../components/FadeIn';
 
 export const Main = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,13 +13,13 @@ export const Main = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
   const { t, language } = useLanguage();
 
-  // Function to replace Vladislav with awwwdde in text
+
   const processText = (text: string): string => {
     const primaryName = t('name.primary');
     const alternateName = t('name.alternate');
     const nickname = t('name.nickname');
 
-    // Create case-insensitive regex to catch all variations of the name
+
     const primaryRegex = new RegExp(primaryName, 'gi');
     const alternateRegex = new RegExp(alternateName, 'gi');
 
@@ -75,16 +76,28 @@ export const Main = () => {
       });
     }
 
-    // Set up the name toggle interval with a more natural timing
+    // Add fade-in animations for the content blocks
+    if (manifestoRef.current) {
+      gsap.fromTo(manifestoRef.current,
+        { opacity: 0, x: -30 },
+        { opacity: 1, x: 0, duration: 1, delay: 0.6, ease: "power2.out" }
+      );
+    }
+
+    if (aboutRef.current) {
+      gsap.fromTo(aboutRef.current,
+        { opacity: 0, x: 30 },
+        { opacity: 1, x: 0, duration: 1, delay: 0.8, ease: "power2.out" }
+      );
+    }
+
     const nameToggleInterval = setInterval(() => {
-      // Extremely subtle animation - just a gentle fade
       gsap.to('.name-animation', {
         opacity: 0.3,
         duration: 1.2,
         ease: "power1.inOut",
         onComplete: () => {
           setShowNickname(prev => !prev);
-          // Fade back in very smoothly
           gsap.to('.name-animation', {
             opacity: 0.95,
             duration: 1.5,
@@ -99,10 +112,7 @@ export const Main = () => {
       clearInterval(nameToggleInterval);
     };
   }, []);
-
-  // Update when nickname changes
   useEffect(() => {
-    // We still want to keep the interval for text replacement
   }, [showNickname]);
 
   return (

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './ThemeToggle.scss';
+import gsap from 'gsap';
 
 const ThemeToggle: React.FC = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -9,6 +10,15 @@ const ThemeToggle: React.FC = () => {
     if (savedTheme === 'dark') {
       setIsDarkTheme(true);
       document.documentElement.setAttribute('data-theme', 'dark');
+    }
+
+    // Add fade-in animation
+    const toggleButton = document.querySelector('.theme-toggle');
+    if (toggleButton) {
+      gsap.fromTo(toggleButton,
+        { opacity: 0, y: -10 },
+        { opacity: 1, y: 0, duration: 0.6, delay: 0.4, ease: "power2.out" }
+      );
     }
   }, []);
 
@@ -26,8 +36,8 @@ const ThemeToggle: React.FC = () => {
 
   return (
     <div className="theme-toggle">
-      <button 
-        className="theme-toggle-button" 
+      <button
+        className="theme-toggle-button"
         onClick={toggleTheme}
         aria-label={isDarkTheme ? 'Переключиться на светлую тему' : 'Переключиться на темную тему'}
       >
