@@ -33,6 +33,7 @@
             text-align: center;
             cursor: default;
             transition: color 0.3s ease;
+            will-change: transform;
 
             &-text {
                 position: relative;
@@ -48,6 +49,12 @@
                     color: inherit;
                     transition: none;
                 }
+
+                .letter {
+                    display: inline-block;
+                    position: relative;
+                    will-change: transform, opacity;
+                }
             }
 
             &-accent {
@@ -56,6 +63,7 @@
                 display: inline-block;
                 color: inherit;
                 transition: none;
+                will-change: transform, opacity;
 
                 & + span + span::before {
                     content: '';

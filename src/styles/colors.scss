@@ -18,6 +18,13 @@ $dark-accent: #ffffff;
   --text-secondary: #{$light-text-secondary};
   --border: #{$light-border};
   --accent: #{$light-accent};
+
+  /* Inverse theme colors (dark theme colors in light mode) */
+  --inverse-background: #{$dark-background};
+  --inverse-text: #{$dark-text};
+  --inverse-text-secondary: #{$dark-text-secondary};
+  --inverse-border: #{$dark-border};
+  --inverse-accent: #{$dark-accent};
 }
 
 [data-theme="dark"] {
@@ -26,4 +33,11 @@ $dark-accent: #ffffff;
   --text-secondary: #{$dark-text-secondary};
   --border: #{$dark-border};
   --accent: #{$dark-accent};
+
+  /* Inverse theme colors (light theme colors in dark mode) */
+  --inverse-background: #{$light-background};
+  --inverse-text: #{$light-text};
+  --inverse-text-secondary: #{$light-text-secondary};
+  --inverse-border: #{$light-border};
+  --inverse-accent: #{$light-accent};
 }

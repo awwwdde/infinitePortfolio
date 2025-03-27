@@ -1,0 +1,160 @@
+/* Hide default cursor */
+html,
+body,
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+p,
+h1, h2, h3, h4, h5, h6,
+span,
+div {
+  cursor: none !important;
+}
+
+/* Custom cursor styles */
+.cursor-dot,
+.cursor-blob,
+.cursor-invert-circle {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+  will-change: transform;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  transition: width 0.2s, height 0.2s, background-color 0.3s;
+  z-index: 10001;
+
+  &.clicked {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  &.link-hovered {
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: var(--accent);
+  }
+
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+.cursor-blob {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 9998;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    transform: scale(1.2);
+
+    .blob-path {
+      stroke: var(--text);
+      stroke-width: 1px;
+      fill: transparent;
+      transition: stroke 0.3s ease;
+    }
+  }
+
+  &.clicked {
+    transform: translate(-50%, -50%) scale(0.9);
+
+    svg .blob-path {
+      stroke: var(--accent);
+    }
+  }
+
+  &.link-hovered {
+    transform: translate(-50%, -50%) scale(1.1);
+
+    svg {
+      width: 50px;
+      height: 50px;
+
+      .blob-path {
+        stroke: var(--accent);
+        stroke-width: 2px;
+      }
+    }
+  }
+
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+/* Inversion circle */
+.cursor-invert-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: transparent;
+  mix-blend-mode: difference;
+  z-index: 10000;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+
+  &.clicked {
+    width: 33px;
+    height: 33px;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  &.link-hovered {
+    width: 48px;
+    height: 48px;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+/* Media query to disable custom cursor on touch devices */
+@media (max-width: 768px) {
+  html,
+  body,
+  a,
+  button,
+  [role="button"],
+  input[type="submit"],
+  input[type="button"],
+  p,
+  h1, h2, h3, h4, h5, h6,
+  span,
+  div {
+    cursor: auto !important;
+  }
+
+  .cursor-dot,
+  .cursor-blob,
+  .cursor-invert-circle {
+    display: none;
+  }
+}

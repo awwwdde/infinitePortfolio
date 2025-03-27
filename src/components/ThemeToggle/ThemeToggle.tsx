@@ -5,7 +5,6 @@ const ThemeToggle: React.FC = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   useEffect(() => {
-    // Проверяем сохраненную тему при загрузке
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
       setIsDarkTheme(true);
@@ -16,14 +15,12 @@ const ThemeToggle: React.FC = () => {
   const toggleTheme = () => {
     const newTheme = !isDarkTheme;
     setIsDarkTheme(newTheme);
-    
-    // Устанавливаем атрибут для CSS
+
     document.documentElement.setAttribute(
       'data-theme',
       newTheme ? 'dark' : 'light'
     );
-    
-    // Сохраняем выбор пользователя
+
     localStorage.setItem('theme', newTheme ? 'dark' : 'light');
   };
 
